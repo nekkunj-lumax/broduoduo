@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fffaf6;
+  --foreground: #2b211d;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(900px 500px at 100% -10%, rgba(255, 170, 137, 0.28), transparent 60%),
+    radial-gradient(700px 420px at -10% 10%, rgba(255, 215, 190, 0.35), transparent 60%),
+    linear-gradient(180deg, #fffcf9 0%, #fff6ee 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition
+      active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-br from-brand-400 to-brand-600 text-white shadow-glow hover:brightness-105;
+  }
+  .btn-secondary {
+    @apply btn border border-brand-200 bg-white text-brand-700 hover:bg-brand-50;
+  }
+  .btn-ghost {
+    @apply btn text-ink-600 hover:bg-brand-50;
+  }
+  .btn-lg {
+    @apply px-6 py-3.5 text-base;
+  }
+  .card {
+    @apply rounded-3xl border border-brand-100/70 bg-white/90 shadow-soft backdrop-blur;
+  }
+  .input {
+    @apply w-full rounded-2xl border border-brand-100 bg-white px-4 py-3 text-sm text-ink-800 placeholder:text-ink-400
+      transition focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-ink-500;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-brand-100 bg-white px-3.5 py-1.5 text-sm font-medium
+      text-ink-600 transition hover:border-brand-300 hover:text-brand-700;
+  }
+  .chip-active {
+    @apply border-brand-500 bg-brand-500 text-white hover:border-brand-500 hover:text-white;
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
